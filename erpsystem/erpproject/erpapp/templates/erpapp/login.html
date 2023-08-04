@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center; /* Centers the content inside the container */
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #60bb46;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #4cb12f;
+        }
+        
+        .image {
+            width: 150px;
+            margin-bottom: 20px; /* Adds some space between the image and the form */
+        }
+        tr {
+            padding-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://www.nicepng.com/png/full/71-711748_about-scope-logo-png.png" alt="Scope Logo" class="image">
+        <form method="POST">
+        {% csrf_token %}
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required >
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required >
+            </div>
+            <button type="submit">Login</button>
+            <h6>@ 2023 Scope, All rights resevered. | <a href="">Privacy and Cookies</a></h6>
+            <h6>Lothar Tjipueja</h6>
+        </form>
+    </div>
+</body>
+</html>

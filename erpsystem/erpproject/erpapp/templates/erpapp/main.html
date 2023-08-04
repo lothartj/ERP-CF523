@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        table {
+            table-layout: fixed; 
+            border-collapse: collapse; 
+            
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding: 0px;
+        }
+
+        th {
+            background-color:whitesmoke;
+            color: #1dc979;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+        .container {
+            margin-top: 20px;
+            width: 100%;
+            padding-top: 20px;
+            border-radius: 10px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            
+        }
+        body {
+            margin-left: 10px;
+            width: fit-content%;
+            margin-right: 10px;
+        }
+        .top , a, input{
+            margin-left: 40px;
+            margin-top: 10px;
+            padding: ;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+            table {
+                table-layout: fixed; 
+                border-collapse: collapse; 
+                
+                
+            }
+    
+            th,
+            td {
+                border: 1px solid #ddd;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                padding: 0px;
+            }
+    
+            th {
+                background-color:whitesmoke;
+                color: #1dc979;
+                font-family: 'Courier New', Courier, monospace;
+                
+            }
+            .container {
+                margin-top: 20px;
+                width: 100%;
+                padding-top: 20px;
+                border-radius: 10px;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+                
+            }
+            body {
+                margin-left: 10px;
+                width: fit-content%;
+                margin-right: 10px;
+            }
+            .top , a, input{
+                margin-left: 40px;
+                margin-top: 10px;
+            }
+            {% comment %} .itemsclass {
+                width: 20px;
+                color: black;
+                border: 1px solid #1dc979;
+                padding: 5px;
+                border-radius: 5px;
+                text-decoration: none;
+            } {% endcomment %}
+    
+        </style>
+    </head>
+    
+    <body>
+        
+        <div class="top">
+            <a href="" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Items</a>
+            <input type="search" placeholder="Search" >
+            <a href="{% url 'newitem' %}" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">New</a>
+            <a href="" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Items</a>
+            <a href="" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Report</a>
+    
+        </div>
+        <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Description</th>
+                        <th>Barcode</th>
+                        <th>Unit Of Measure</th>
+                        <th>Inventory</th>
+                        <th>Unit Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for items in items %}
+                    <tr>
+                        <td><a href="{% url 'viewitem' item_id=items.id %}" class="itemcode55">{{ items.itemcode }}</a></td>
+                        <td>{{ items.description }}</td>
+                        <td>{{ items.barcode }}</td>
+                        <td>{{ items.unitmeasure }}</td>
+                        <td>{{ items.inventory }}</td>
+                        <td>{{ items.unitcost }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Script integrations -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.rawgit.com/alvaro-prieto/colResizable/master/colResizable-1.6.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("table").colResizable({
+                    liveDrag: true,
+                    gripInnerHtml: "<div class='grip'></div>",
+                    draggingClass: "dragging",
+                    resizeMode: 'fit'
+                });
+            });
+        </script>
+    </body>
+    
+    </html>
+    

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        /* Define the custom-form class */
+        .custom-form {
+            width: 800px;
+            border: 2px solid #60bb46;
+            border-radius: 5px;
+            padding: 50px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+        .custom-form-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            
+        }
+        .form-group {
+            padding: 10px;
+        }
+        .name {
+            display: flex;
+            justify-content: center;
+            color: #000000;
+            cursor: help;
+        }
+        .name:hover {
+            color: #60bb46;
+           
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav justify-content-center" style="margin-top: 20px;">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Deep Catch Norgwegian Salmon Portions 15x200g</a>
+        </li>
+    </ul>
+    <div class="custom-form-container">
+    <form class="custom-form" method="POST">
+        {% csrf_token %}
+        <h1 class="name">Item Card</h1>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Number:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Item Number" name="itemcode">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Description:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputPassword3" placeholder="Item Description" name="description">
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Barcode:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="Barcode" name="barcode">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">UOM:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="Unit of Measure" name="unitmeasure">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Inventory:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="Inventory" name="inventory">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Unit Cost:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword3" placeholder="Unit Cost" name="unitcost">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Item Image</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" >
+          </div>
+
+          <button type="submit" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Save Item</button>
+          <a href="{% url 'main' %}"><button type="button" class="btn btn-outline-success" style="background-color: #e21762; color: white; border: #e21762;">Back</button></a>
+      </form>
+    </div>
+</body>
+</html>
