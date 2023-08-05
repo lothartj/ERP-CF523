@@ -14,6 +14,7 @@ def user_login(request):
         if user is not None:
             login(request, user)
             return redirect('main')
+        
 
 
     return render(request, 'erpapp/login.html')
@@ -50,3 +51,8 @@ def user_main(request):
 def viewitem(request, item_id):
     item = get_object_or_404(Items, id=item_id)
     return render(request, 'erpapp/viewitem.html', {'item': item})
+
+def delete_item(request ,item_id):
+    item = Items.objects.get(id=item_id)
+    item.delete()
+    return redirect('main')

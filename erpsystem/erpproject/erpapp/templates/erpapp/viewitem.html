@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Details</title>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <style>
+        .itmeinfo{
+            border-left: 2px solid #60bb46;
+            padding: 20px;
+            border-bottom: 2px solid #60bb46;
+            margin: 10px;
+            width: 500px;
+            border-radius: 5px;
+            cursor:pointer;
+
+        }
+        .itmeinfo:hover{
+            background-color: #60bb46;
+            
+        }
+        .maininfobox {
+            width: fit-content;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid #60bb46;
+            border-left: 2px solid #60bb46;
+            align-items: center;
+            margin-top: 1%;
+            border-radius: 5px;
+        }
+        .image {
+            border: 1px solid #60bb46;
+            width: 250px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Item Code</th>
-                <th>Description</th>
-                <th>Barcode</th>
-                <th>Unit Measure</th>
-                <th>Inventory</th>
-                <th>Unit Cost</th>
-            </tr>
-        </thead>
-        <tbody>
-    
-            <tr>
-                <td>{{ item.itemcode }}</td>
-                <td>{{ item.description }}</td>
-                <td>{{ item.barcode }}</td>
-                <td>{{ item.unitmeasure }}</td>
-                <td>{{ item.inventory }}</td>
-                <td>{{ item.unitcost }}</td>
-            </tr>
- 
-        </tbody>
-    </table>
+    <center>
+        <a href="{% url 'deleteitem' item_id=item.id %}">DELETE</a>
+    <div class="maininfobox">
+        <img src="https://cdn-d03d5231-5b2e278c.mysagestore.com/52b4847e965496ec89e8fd0fcab5e850/contents/13700667/13700667_.png" alt="" class="image">
+        <div class="itmeinfo">Description: {{ item.description }}</div>
+        <div class="itmeinfo">Barcode: {{ item.barcode }}</div>
+        <div class="itmeinfo">UOM: {{ item.unitmeasure }}</div>
+        <div class="itmeinfo">Inventory: {{ item.inventory }}</div>
+        <div class="itmeinfo">Unit Cost N${{ item.unitcost }}</div>
+      </div>
+      <td>{{ items.description }}</td>
+      <td>{{ items.barcode }}</td>
+      <td>{{ items.unitmeasure }}</td>
+      <td>{{ items.inventory }}</td>
+      <td>{{ items.unitcost }}</td>
+  </tr>
+    <center>
+      <a href="{% url 'main' %}" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Back</a>
+    </center>
 </body>
 </html>

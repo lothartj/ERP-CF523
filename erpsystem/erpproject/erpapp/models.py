@@ -8,7 +8,7 @@ class Items(models.Model):
     unitmeasure = models.CharField(max_length=5)
     inventory = models.IntegerField()
     unitcost = models.DecimalField(max_digits=10000000000, decimal_places=2)
-    image = models.ImageField(upload_to='items/', null=True, blank=True)
+    image = models.ImageField(upload_to='img/%Y', null=True, blank=True)
 
 class Login(models.Model):
     username = models.CharField(max_length=20)
