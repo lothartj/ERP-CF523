@@ -41,7 +41,13 @@
 </head>
 <body>
     <center>
-        <a href="{% url 'deleteitem' item_id=item.id %}">DELETE</a>
+        <a href="{% url 'deleteitem' item_id=item.id %}" 
+        class="btn btn-outline-danger" 
+        style="color: white; background-color: red; border: 2px solid red; transition: background-color 0.3s ease;" 
+        onmouseover="this.style.backgroundColor='red';" 
+        onmouseout="this.style.backgroundColor='red';">DELETE</a>
+     
+
     <div class="maininfobox">
         <img src="https://cdn-d03d5231-5b2e278c.mysagestore.com/52b4847e965496ec89e8fd0fcab5e850/contents/13700667/13700667_.png" alt="" class="image">
         <div class="itmeinfo">Description: {{ item.description }}</div>
