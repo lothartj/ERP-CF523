@@ -28,13 +28,13 @@ def newitem(request):
         unitmeasure = request.POST.get('unitmeasure')
         inventory = request.POST.get('inventory')
         unitcost = request.POST.get('unitcost')
-        image_field = request.FILES.get('image_field')
+        image = request.FILES.get('image_field')
 
-        if not itemcode or not description or not barcode or not unitmeasure or not inventory or not unitcost:
+        if not itemcode or not description or not barcode or not unitmeasure or not inventory or not unitcost or not image:
             messages.error(request, 'Please Fill in all inputs')
             return render(request, 'newitem')
         else:
-            save = Items(itemcode=itemcode,description=description,barcode=barcode,unitmeasure=unitmeasure,inventory=inventory,unitcost=unitcost)
+            save = Items(itemcode=itemcode,description=description,barcode=barcode,unitmeasure=unitmeasure,inventory=inventory,unitcost=unitcost, image=image)
             save.save()
             return redirect('main')
     
@@ -56,3 +56,10 @@ def delete_item(request ,item_id):
     item = Items.objects.get(id=item_id)
     item.delete()
     return redirect('main')
+
+from django.shortcuts import render
+
+
+def my_view(request, item_id):
+    item = Items.objects.get(id=item_id)  # or however you're fetching the object
+    return render(request, 'viewitem', {'item': item})

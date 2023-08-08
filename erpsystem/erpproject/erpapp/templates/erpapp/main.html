@@ -100,6 +100,13 @@
                 margin-left: 40px;
                 margin-top: 10px;
             }
+            .image {
+                width: 150px;
+                margin-bottom: 20px; /* Adds some space between the image and the form */
+                position: absolute;
+                margin-top: 1%;
+               transform: translate(-50%,-50%);
+            }
             {% comment %} .itemsclass {
                 width: 20px;
                 color: black;
@@ -113,13 +120,14 @@
     </head>
     
     <body>
+        <center><img src="https://www.nicepng.com/png/full/71-711748_about-scope-logo-png.png" alt="Scope Logo" class="image"></center>
         
         <div class="top">
-            <a href="" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Items</a>
+            <a href="" class="btn btn-outline-success" style="background-color: #070d06; color: white; border: #60bb46;">Items</a>
             <input type="search" placeholder="Search" >
-            <a href="{% url 'newitem' %}" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">New</a>
-            <a href="" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Items</a>
-            <a href="" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Report</a>
+            <a href="{% url 'newitem' %}" class="btn btn-outline-success" style="background-color: #070d06; color: white; border: #60bb46;">New</a>
+            <a href="" class="btn btn-outline-success" style="background-color: #070d06; color: white; border: #60bb46;">Items</a>
+            <a href="" class="btn btn-outline-success" style="background-color: #070d06; color: white; border: #60bb46;">Report</a>
     
         </div>
         <div class="container">

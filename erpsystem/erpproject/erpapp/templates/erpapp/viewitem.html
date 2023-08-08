@@ -37,19 +37,69 @@
             width: 250px;
             border-radius: 5px;
         }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0); 
+        }
+        .overlay {
+            background-color: rgba(0,0,0,.352);
+            z-index: -13;
+        }
+        .top h3 {
+            height: 50px;
+            padding-left: 10px;
+            background-color: black;
+            color: #fff;
+            font-family: "Segoe UI Semibold", "Segoe WP Semibold", device-segoe-semibold, "Segoe UI", "Segoe WP", Segoe, Tahoma, Helvetica, Arial, sans-serif !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            text-transform: none !important;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+        img {
+            width: 100px;
+        }
+        .top2 img {
+            width: 10%;
+            position: relative;
+            width: 150px;
+            margin-top: 10px;
+        }
+        .top, a, input {
+            margin-left: 40px;
+            /* margin-top: 10px; */
+            display: flex;
+            align-items: center;
+            margin-top: 1%;
+        }
+        .gap {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .maininfobox {
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
     <center>
-        <a href="{% url 'deleteitem' item_id=item.id %}" 
-        class="btn btn-outline-danger" 
-        style="color: white; background-color: red; border: 2px solid red; transition: background-color 0.3s ease;" 
-        onmouseover="this.style.backgroundColor='red';" 
-        onmouseout="this.style.backgroundColor='red';">DELETE</a>
-     
+    <div class="top2">
+        <img src="https://www.nicepng.com/png/full/71-711748_about-scope-logo-png.png">
+    </div>
+    </center>
 
+    <center >
     <div class="maininfobox">
-        <img src="https://cdn-d03d5231-5b2e278c.mysagestore.com/52b4847e965496ec89e8fd0fcab5e850/contents/13700667/13700667_.png" alt="" class="image">
+        {% if item.image %}
+        <img src="{{item.image.url}}" alt="{{item.image.description}}" class="image">
+        {% else %}
+        <p>No image available for this item.</p>
+        {% endif %}
+        <div class="itmeinfo"><b>Item Code:</b> {{ item.itemcode }}</div>
         <div class="itmeinfo">Description: {{ item.description }}</div>
         <div class="itmeinfo">Barcode: {{ item.barcode }}</div>
         <div class="itmeinfo">UOM: {{ item.unitmeasure }}</div>
@@ -62,8 +112,19 @@
       <td>{{ items.inventory }}</td>
       <td>{{ items.unitcost }}</td>
   </tr>
-    <center>
-      <a href="{% url 'main' %}" class="btn btn-outline-success" style="background-color: #60bb46; color: white; border: #60bb46;">Back</a>
-    </center>
+</center>
+<center >
+    <div class="gap">
+        <a href="{% url 'main' %}" 
+           class="btn btn-outline-success custom-btn" 
+           style="background-color: #60bb46; color: white; border: #60bb46; min-width: 120px; min-height: 40px; display: inline-block; text-align: center;">Back</a>
+    
+        <a href="{% url 'deleteitem' item_id=item.id %}" 
+           class="btn btn-outline-danger custom-btn" 
+           style="color: white; background-color: red; border: 2px solid red; transition: background-color 0.3s ease; min-width: 120px; min-height: 40px; display: inline-block; text-align: center;" 
+           onmouseover="this.style.backgroundColor='#ff4d4d';" 
+           onmouseout="this.style.backgroundColor='red';">DELETE</a>
+    </div>
+</center>
 </body>
 </html>
